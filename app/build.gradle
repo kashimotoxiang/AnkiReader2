@@ -3,12 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 28
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.blanke.ankireader"
+        applicationId "com.example.ankireader2"
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 28
         versionCode 6
         versionName "2.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -35,6 +35,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines"
+    implementation 'com.github.florent37:runtime-permission-kotlin:1.1.2'
 
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'org.jsoup:jsoup:1.13.1'

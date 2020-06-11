@@ -1,12 +1,15 @@
 package com.example.ankireader2
 
+import android.Manifest
 import android.os.Bundle
 import android.view.View
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ankireader2.play.PlayerService
+import com.github.florent37.runtimepermission.kotlin.askPermission
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +23,17 @@ class MainActivity : AppCompatActivity() {
         val mSeekBar = findViewById<SeekBar>(R.id.seekBar)
         var seekBarTextView = findViewById<TextView>(R.id.seekBarText)
 
-
+        askPermission() {
+            Toast.makeText(
+                this@MainActivity, "权限申请成功",
+                Toast.LENGTH_SHORT
+            ).show()
+        }.onDeclined { e ->
+            Toast.makeText(
+                this@MainActivity, "权限申请失败，程序无法运行",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
 
         playService= PlayerService(this) { cardFrontText, cardBackText,currentProgress:Int,barMaximum: Int->
             mSeekBar.progress = currentProgress

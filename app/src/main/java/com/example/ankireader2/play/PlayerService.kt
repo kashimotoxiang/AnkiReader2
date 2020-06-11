@@ -31,15 +31,6 @@ class PlayerService(private val context: Context, val viewCallbacks: (Any, Any, 
         notes.sortBy { it.due }
     }
 
-//    override fun onBind(intent: Intent?): IBinder? {
-//        return null
-//    }
-//
-//    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-//        play();
-//        return START_STICKY
-//    }
-
     fun play() {
         currentState = PlayState.PLAYING
         currentThread = Thread(Runnable {
